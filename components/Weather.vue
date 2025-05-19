@@ -70,7 +70,12 @@ onMounted(async () => {
           placeholder="Enter location..."
           class="flex-grow"
         />
-        <UButton color="primary" @click="searchWeather" :loading="loading">
+        <UButton
+          color="primary"
+          @click="searchWeather"
+          :loading="loading"
+          class="hover:cursor-pointer"
+        >
           Search
         </UButton>
         <UButton
@@ -78,6 +83,7 @@ onMounted(async () => {
           icon="i-heroicons-map-pin"
           @click="getUserLocation"
           :loading="loading"
+          class="hover:cursor-pointer"
         />
       </div>
     </div>
