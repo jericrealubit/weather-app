@@ -4,6 +4,8 @@ const { loadWeatherData, getLocalWeather, loading, error, weather, forecast } =
 
 const searchQuery = ref("");
 
+console.log(forecast.forecastday);
+
 // Format date: "Mon, 12 May"
 const formatDate = (dateStr) => {
   return new Date(dateStr).toLocaleDateString("en-US", {
@@ -55,7 +57,7 @@ const getUserLocation = async () => {
 
 // Load initial weather data
 onMounted(async () => {
-  await loadWeatherData("Christchurch", 3);
+  await getUserLocation();
 });
 </script>
 
@@ -106,7 +108,9 @@ onMounted(async () => {
           :alt="weather.current.condition.text"
           class="w-16 h-16"
         />
-        <p class="ml-2 text-lg">{{ weather.current.condition.text }}</p>
+        <p class="ml-2 text-lg font-bold">
+          {{ weather.current.condition.text }}
+        </p>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
@@ -141,21 +145,35 @@ onMounted(async () => {
           class="text-center"
         >
           <h4 class="font-medium mb-2">{{ formatDate(day.date) }}</h4>
-          <div class="flex justify-center mb-2">
-            <img
-              :src="day.day.condition.icon"
-              :alt="day.day.condition.text"
-              class="w-16 h-16"
-            />
-          </div>
-          <p class="mb-2">{{ day.day.condition.text }}</p>
-          <div class="flex justify-center gap-4">
-            <span class="text-blue-500"
-              >{{ Math.round(day.day.mintemp_c) }}°</span
-            >
-            <span class="font-bold text-red-500"
-              >{{ Math.round(day.day.maxtemp_c) }}°</span
-            >
+          <div class="flex mb-4">
+            <div class="w-1/2 bg-gray-100">
+              <div class="flex justify-center mb-2">
+                <img
+                  :src="day.day.condition.icon"
+                  :alt="day.day.condition.text"
+                  class="w-16 h-16"
+                />
+              </div>
+              <p class="mb-2">{{ day.day.condition.text }}</p>
+              <div class="flex justify-center gap-4">
+                <span class="text-blue-500"
+                  >{{ Math.round(day.day.mintemp_c) }}°</span
+                >
+                <span class="font-bold text-red-500"
+                  >{{ Math.round(day.day.maxtemp_c) }}°</span
+                >
+              </div>
+            </div>
+            <div class="w-1/2 bg-gray-200">
+              <div class="flex justify-center mb-2">
+                <span class="flex items-center justify-center gap-1 text-xl">
+                  <UIcon name="noto:cloud-with-rain" class="w-16 h-16" />
+                </span>
+              </div>
+              <div class="flex justify-center gap-4 font-bold">
+                {{ day.day.daily_chance_of_rain }}% rain
+              </div>
+            </div>
           </div>
 
           <!-- Hourly forecast sample -->
