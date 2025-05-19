@@ -177,7 +177,7 @@ onMounted(async () => {
         >
           <h4 class="font-medium mb-2">{{ formatDate(day.date) }}</h4>
           <div class="flex mb-4">
-            <div class="w-1/2 bg-gray-100">
+            <div class="w-1/2">
               <div class="flex justify-center mb-2">
                 <img
                   :src="day.day.condition.icon"
@@ -195,10 +195,12 @@ onMounted(async () => {
                 >
               </div>
             </div>
-            <div class="w-1/2 bg-gray-200">
-              <div class="flex justify-center mb-2">
-                <span class="flex items-center justify-center gap-1 text-xl">
-                  <UIcon name="noto:cloud-with-rain" class="w-16 h-16" />
+            <div class="w-1/2">
+              <div class="flex justify-center mb-1">
+                <span
+                  class="flex items-center justify-center gap-1 text-xl mt-2"
+                >
+                  <UIcon name="noto:cloud-with-rain" class="w-16 h-15" />
                 </span>
               </div>
               <div class="flex justify-center gap-4 font-bold">

@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxt/icon"],
+  modules: ["@nuxt/ui", "@nuxt/icon", "@nuxtjs/color-mode"],
   css: ["~/assets/css/main.css"],
   router: {
     options: {
@@ -16,5 +16,19 @@ export default defineNuxtConfig({
   },
   nitro: {
     serveStatic: true,
+  },
+  colorMode: {
+    // we will toggle a `class="dark"` on <html>
+    classSuffix: "",
+    // default to the user’s OS setting
+    preference: "system",
+    // fallback to light if JS is disabled
+    fallback: "light",
+    // key in localStorage
+    storageKey: "nuxt-color-mode",
+  },
+  // Ensure Tailwind is in "class" mode
+  tailwindcss: {
+    viewer: false,
   },
 });
