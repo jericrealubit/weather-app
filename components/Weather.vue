@@ -4,7 +4,26 @@ const { loadWeatherData, getLocalWeather, loading, error, weather, forecast } =
 
 const searchQuery = ref("");
 
-console.log(forecast.forecastday);
+///+ localstorage
+
+const STORAGE_KEY = "lastSearchedLocation";
+
+// Function to save location to localStorage
+const saveLocationToStorage = (location) => {
+  if (import.meta.client) {
+    localStorage.setItem(STORAGE_KEY, location);
+  }
+};
+
+// Function to get location from localStorage
+const getLocationFromStorage = () => {
+  if (import.meta.client) {
+    return localStorage.getItem(STORAGE_KEY) || "Christchurch"; // Default location
+  }
+  return "Christchurch"; // Default for SSR
+};
+
+///- localstorage
 
 // Format date: "Mon, 12 May"
 const formatDate = (dateStr) => {
@@ -43,13 +62,17 @@ const getFilteredHours = (hours) => {
 const searchWeather = async () => {
   if (searchQuery.value.trim()) {
     await loadWeatherData(searchQuery.value, 3);
+    saveLocationToStorage(searchQuery.value);
   }
 };
 
 // Get weather for user's current location
 const getUserLocation = async () => {
   try {
-    await getLocalWeather(3);
+    const location = await getLocalWeather(3);
+    if (location && weather.value) {
+      saveLocationToStorage(weather.value.location.name);
+    }
   } catch (err) {
     // Error is handled in the composable
   }
@@ -57,7 +80,9 @@ const getUserLocation = async () => {
 
 // Load initial weather data
 onMounted(async () => {
-  await loadWeatherData("Christchurch");
+  const savedLocation = getLocationFromStorage();
+  searchQuery.value = savedLocation; // Set the search input to the saved location
+  await loadWeatherData(savedLocation, 3);
 });
 </script>
 
