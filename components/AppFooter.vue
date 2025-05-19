@@ -8,7 +8,10 @@
         aria-label="Toggle dark mode"
       />
       <div class="text-sm text-gray-500">
-        © {{ new Date().getFullYear() }} App
+        © {{ new Date().getFullYear() }} WeatherApp - Powered by
+        <NuxtLink to="https://www.weatherapi.com/" title="Free Weather API"
+          >WeatherAPI.com</NuxtLink
+        >
       </div>
     </div>
   </div>

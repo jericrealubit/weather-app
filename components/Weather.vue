@@ -2,7 +2,7 @@
 const { loadWeatherData, getLocalWeather, loading, error, weather, forecast } =
   useWeatherApi();
 
-const searchQuery = ref("Christchurch");
+const searchQuery = ref("");
 
 // Format date: "Mon, 12 May"
 const formatDate = (dateStr) => {
@@ -132,7 +132,7 @@ onMounted(async () => {
     <!-- Forecast -->
     <div v-if="forecast">
       <h3 class="text-xl font-bold mb-4">
-        {{ forecast.forecastday.length }}-Day Forecast
+        {{ forecast.forecastday?.length }}-Day Forecast
       </h3>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <UCard
@@ -182,7 +182,10 @@ onMounted(async () => {
 
     <!-- Loading state -->
     <div v-if="loading && !weather" class="flex justify-center my-12">
-      <ULoadingIcon />
+      <UIcon
+        name="i-heroicons-arrow-path"
+        class="animate-spin h-5 w-5 text-primary-500"
+      />
     </div>
   </div>
 </template>

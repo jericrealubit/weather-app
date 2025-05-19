@@ -1,7 +1,4 @@
-<script lang="ts" setup>
-const { sayHello } = useUtils();
-sayHello();
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <Weather />
