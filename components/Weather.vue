@@ -57,7 +57,7 @@ const getUserLocation = async () => {
 
 // Load initial weather data
 onMounted(async () => {
-  await getUserLocation();
+  await loadWeatherData("Christchurch");
 });
 </script>
 
