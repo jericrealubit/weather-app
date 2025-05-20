@@ -5,7 +5,6 @@ Featuring a built-in light/dark mode toggle (persists to `localStorage` & respec
 
 ## 🔗 Links
 
-- Repository: https://github.com/jericrealubit/weather-app
 - Live demo: https://weather-jeric.netlify.app/
 
 ## 📸 Screenshot
