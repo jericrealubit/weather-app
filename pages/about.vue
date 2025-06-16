@@ -4,7 +4,7 @@
     <header class="mb-8">
       <h1 class="text-3xl font-bold mb-2">Weather-App</h1>
       <div class="space-x-4">
-        Perository:
+        Repository:
         <a
           href="https://github.com/jericrealubit/weather-app"
           target="_blank"
