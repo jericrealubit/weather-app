@@ -18,9 +18,9 @@ const saveLocationToStorage = (location) => {
 // Function to get location from localStorage
 const getLocationFromStorage = () => {
   if (import.meta.client) {
-    return localStorage.getItem(STORAGE_KEY) || "Christchurch"; // Default location
+    return localStorage.getItem(STORAGE_KEY) || "Perth"; // Default location
   }
-  return "Christchurch"; // Default for SSR
+  return "Perth"; // Default for SSR
 };
 
 ///- localstorage
