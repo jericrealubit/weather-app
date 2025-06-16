@@ -12,6 +12,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       weatherApiKey: process.env.NUXT_PUBLIC_WEATHER_API_KEY,
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
     },
   },
   nitro: {

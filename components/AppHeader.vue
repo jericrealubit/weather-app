@@ -29,7 +29,8 @@ const items = ref<NavigationMenuItem[][]>([
         <div class="flex-shrink-0">
           <NuxtLink to="/" class="flex items-center">
             <Icon name="wi:day-rain" size="40" />
-            <span class="ml-2 text-xl font-bold">WeatherApp</span>
+            <span class="ml-2 text-xl font-bold pr-2">WeatherApp</span
+            ><UserCount />
           </NuxtLink>
         </div>
 
