@@ -91,6 +91,7 @@ onMounted(async () => {
     <div class="mb-4">
       <div class="flex gap-2">
         <UInput
+          @keyup.enter="searchWeather"
           v-model="searchQuery"
           placeholder="Enter location..."
           class="flex-grow"
