@@ -7,7 +7,9 @@
       class="h-2.5 w-2.5 rounded-full transition-colors duration-300 ease-in-out"
       :class="{ 'bg-green-500': isConnected, 'bg-red-500': !isConnected }"
     ></span>
-    <span v-if="isConnected">{{ userCount }} users online</span>
+    <span v-if="isConnected"
+      >{{ userCount }} user{{ userCount == 1 ? "" : "s" }} online</span
+    >
     <span v-else class="text-gray-500">Connecting...</span>
   </div>
 </template>

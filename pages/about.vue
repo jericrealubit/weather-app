@@ -45,8 +45,10 @@
         </li>
         <li>
           Tailwind’s
-          <code class="bg-gray-100 text-sm p-1 rounded">dark:</code> variants
-          for seamless theming across cards, headers & buttons
+          <code class="bg-gray-200 dark:bg-gray-700 text-sm p-1 rounded"
+            >dark:</code
+          >
+          variants for seamless theming across cards, headers & buttons
         </li>
         <li>
           Mobile-first design—layout adapts beautifully from phone to desktop
@@ -98,9 +100,9 @@
         >
         or email me at
         <a
-          href="mailto:jericrealubit@gmail.con"
+          href="mailto:jericrealubit@gmail.com"
           class="text-blue-600 hover:underline"
-          >jericrealubit@gmail.con</a
+          >jericrealubit@gmail.com</a
         >.
       </p>
     </footer>
