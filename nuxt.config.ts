@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxt/icon", "@nuxtjs/color-mode"],
+  modules: ["@nuxt/ui", "@nuxt/icon", "@nuxtjs/color-mode", "@nuxtjs/supabase"],
+  supabase: {
+    redirect: false, // Disable if you don't have a login page yet
+  },
   css: ["~/assets/css/main.css"],
   router: {
     options: {
